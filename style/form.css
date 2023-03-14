@@ -1,0 +1,38 @@
+.todo-form{
+    width: 100vw;
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-left: 20px;
+}
+
+.todo-form > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.todo-form label{
+    font-size: 2.6rem;
+    color: #a7c957;
+    font-weight: 600;
+    
+}
+
+.todo-form input{
+    width: 30rem;
+    height: 2.5rem;
+}
+
+.todo-form button{
+    width: 8rem;
+    height: 4rem;
+    outline: none;
+    background-color: #e9d8a6;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}

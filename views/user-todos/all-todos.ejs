@@ -1,0 +1,24 @@
+<div class="main-container">
+  <%- include('../layouts/header.ejs')%> <%-
+  include('../layouts/navigation.ejs')%> <% if(todos.length > 0){%> <%
+  todos.forEach(item=>{%>
+  <div class="todo-items">
+    <h1><%= item.todo %></h1>
+
+    <p><%= item.description%></p>
+
+    <div class="action-btns">
+      <form action="/add-to-favourites" method="POST">
+        <input type="hidden" value="<%= item.id %>" name="todoId" />
+        <button type="submit">Add to Fav</button>
+      </form>
+      <button>Complete</button>
+
+      <a href="/show-todo-details/<%= item.id %>">Detail</a>
+    </div>
+  </div>
+  <%} )%> <% } else { %>
+  <h1>No todos are created</h1>
+  <% } %>
+</div>
+<%-include('../layouts/footer.ejs')%>

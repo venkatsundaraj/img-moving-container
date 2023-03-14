@@ -1,0 +1,36 @@
+<%- include('../layouts/header.ejs')%>
+
+<body>
+  <div class="main-container">
+    <%- include('../layouts/navigation.ejs')%>
+    <form
+      method="POST"
+      action="<% if(editing) {%>  /edit-todo <% } else {%> /post-todo <% } %>"
+      class="todo-form"
+    >
+      <div>
+        <label for="todos">Write Todo</label>
+        <input
+          type="text"
+          id="todos"
+          name="todo"
+          value="<%= editing==='true' ? todo.todo : '' %>"
+        />
+      </div>
+      <div>
+        <label for="todos">Description</label>
+        <input
+          type="text"
+          id="todos"
+          name="description"
+          value="<%= editing==='true' ? todo.description : '' %>"
+        />
+      </div>
+      <% if (editing) { %>
+      <input type="hidden" value="<%= todo.id %>" name="todoId" />
+      <% } %>
+      <button type="submit"><%= editing==='true' ? 'Update' : 'Add' %></button>
+    </form>
+  </div>
+  <%- include('../layouts/footer.ejs')%>
+</body>

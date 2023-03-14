@@ -1,0 +1,12 @@
+<%- include('../layouts/header.ejs')%> <%-
+include('../layouts/navigation.ejs')%>
+<div class="todo-detail-container">
+  <h1><%= todo.todo %></h1>
+  <p><i><%= todo.description %></i></p>
+  <div class="action-btns">
+    <a href="/edit-product/<%= todo.id %>?edit=true">Edit</a>
+
+    <button>Delete</button>
+  </div>
+</div>
+<%- include('../layouts/footer.ejs')%>
