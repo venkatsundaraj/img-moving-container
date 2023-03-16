@@ -16,6 +16,10 @@ const Favourite = require('./module/Favourites')
 
 const FavouriteItem = require('./module/FavouriteItem')
 
+const Completed = require('./module/Completed')
+
+const CompletedTodo = require('./module/CompletedTodo')
+
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
 
@@ -61,6 +65,19 @@ Favourite.belongsToMany(Todo, {through: FavouriteItem})
 Todo.belongsToMany(Favourite, {through: FavouriteItem})
 
 
+//One to one relationship
+User.hasOne(Completed)
+Completed.belongsTo(User)
+
+
+//Many to many relationship
+// Todo.belongsToMany(Completed, {through:CompletedTodo})
+// Completed.belongsToMany(Todo, {through:CompletedTodo})
+
+//One to many relationship
+Completed.hasMany(CompletedTodo)
+CompletedTodo.belongsTo(Completed)
+
 
 sequelize
 .sync()
@@ -79,6 +96,10 @@ sequelize
 })
 .then(user=>{
     user.createFavourite()
+    return user
+})
+.then(user=>{
+    user.createCompleted()
 })
 .then(data=>{
     app.listen(3000,()=>{console.log('Server started')})

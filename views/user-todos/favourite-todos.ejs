@@ -1,0 +1,21 @@
+<%- include('../layouts/header.ejs')%>
+<div class="main-container">
+  <%- include('../layouts/navigation.ejs')%> <% if(favourites.length > 0){ %> <%
+  favourites.forEach(fav=>{%>
+  <div class="todo-detail-container">
+    <h1><%= fav.todo %></h1>
+    <h3>Importance: <%= fav.favouriteItem.importantPercentage %>%</h3>
+    <p><i><%= fav.description %></i></p>
+    <div class="action-btns-2">
+      <%- include('../layouts/completedTodos.ejs',{fav:fav})%>
+      <form action="/remove-favourite" method="POST">
+        <input type="hidden" value="<%= fav.id %>" name="todoId" />
+        <button class="completed-btn" type="submit">Remove Fav</button>
+      </form>
+    </div>
+  </div>
+  <% }) %> <% } else {%>
+  <h1 class="no-items-desc">No favourites are there</h1>
+  <% } %>
+</div>
+<%- include('../layouts/footer.ejs')%>

@@ -3,10 +3,12 @@ include('../layouts/navigation.ejs')%>
 <div class="todo-detail-container">
   <h1><%= todo.todo %></h1>
   <p><i><%= todo.description %></i></p>
-  <div class="action-btns">
+  <div class="action-btns-2">
     <a href="/edit-product/<%= todo.id %>?edit=true">Edit</a>
-
-    <button>Delete</button>
+    <form method="POST" action="/delete-todo">
+      <input type="hidden" value="<%= todo.id %>" name="todoId" />
+      <button type="submit">Delete</button>
+    </form>
   </div>
 </div>
 <%- include('../layouts/footer.ejs')%>

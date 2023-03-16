@@ -1,0 +1,10 @@
+<%- include('../layouts/header.ejs')%> <%-
+include('../layouts/navigation.ejs')%> <% if (todos.length > 0){ %> <%
+todos.forEach(item=>{%>
+<div class="todo-items">
+  <h1><%= item.todo %></h1>
+  <p><%= item.description %></p>
+</div>
+<% } )%> <%} else {%>
+<h1 class="no-items-desc">No todos you have completed</h1>
+<%}%> <%- include('../layouts/footer.ejs')%>

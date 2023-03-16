@@ -64,15 +64,26 @@ main{
         /* cursor: pointer; */
 }
 
-.action-btns{
+.action-btns-2{
+    width: 30rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+}
+
+.action-btns-3{
     /* height:100%; */
     width:30rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
-.action-btns  button, .action-btns  a{
+.completed-btn{
+    margin-top: -15px !important;
+}
+
+.action-btns-2 a, .action-btns-3  button, .action-btns-2 button, .action-btns-3  a, .completed-btn{
     background-color: #a7c957;
     color: #fff;
     font-weight: bold;
@@ -83,6 +94,7 @@ main{
     text-decoration: none;
     display: grid;
     place-items: center;
+    margin: 0 auto;
 }
 
 .todo-items > h1{
@@ -105,6 +117,12 @@ main{
     margin-top: 2rem;
 }
 
+.todo-detail-container h3{  
+    text-align: center;
+    font-size: 2rem;
+    color: #c1121f;
+}
+
 .todo-detail-container h1{
     font-size: 5rem;
     color: #a7c957;
@@ -119,4 +137,19 @@ main{
 
 .todo-detail-container div{
     margin: 20px auto;
+}
+
+.main-container  .todo-detail-container{
+    width: 80%;
+    height: 20rem;
+}
+
+.todo-items .completed-btn{
+    margin-top: 0px !important;
+}
+.no-items-desc{
+    color: #a7c957;
+    text-align: center;
+    margin-top: 10rem;
+    font-size: 6rem;
 }

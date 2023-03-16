@@ -17,8 +17,18 @@ router.get('/edit-product/:todoId', todoController.showTodoEditPage)
 
 router.post('/edit-todo', todoController.submitEditedTodo)
 
+router.get('/favourites', todoController.renderAllFavourites)
+
+router.post('/delete-todo', todoController.deleteTodoHandler)
+
+router.get('/completed', todoController.renderCompletedTodosHandler)
+
 
 router.post('/add-to-favourites', todoController.addItemToFavourite)
+
+router.post('/remove-favourite', todoController.removeFavouriteTodo)
+
+router.post('/complete-todo', todoController.todoCompletedHandler)
 
 
 

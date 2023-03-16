@@ -1,24 +1,24 @@
 <div class="main-container">
   <%- include('../layouts/header.ejs')%> <%-
   include('../layouts/navigation.ejs')%> <% if(todos.length > 0){%> <%
-  todos.forEach(item=>{%>
+  todos.forEach(fav=>{%>
   <div class="todo-items">
-    <h1><%= item.todo %></h1>
+    <h1><%= fav.todo %></h1>
 
-    <p><%= item.description%></p>
+    <p><%= fav.description%></p>
 
-    <div class="action-btns">
+    <div class="action-btns-3">
       <form action="/add-to-favourites" method="POST">
-        <input type="hidden" value="<%= item.id %>" name="todoId" />
+        <input type="hidden" value="<%= fav.id %>" name="todoId" />
         <button type="submit">Add to Fav</button>
       </form>
-      <button>Complete</button>
+      <%- include('../layouts/completedTodos.ejs',{fav:fav})%>
 
-      <a href="/show-todo-details/<%= item.id %>">Detail</a>
+      <a href="/show-todo-details/<%= fav.id %>">Detail</a>
     </div>
   </div>
   <%} )%> <% } else { %>
-  <h1>No todos are created</h1>
+  <h1 class="no-items-desc">No todos are created</h1>
   <% } %>
 </div>
 <%-include('../layouts/footer.ejs')%>
